@@ -1,0 +1,112 @@
+1. CREATING TABLES
+
+CREATE TABLE customer (
+  customer_id INT AUTO_INCREMENT,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  phone VARCHAR(20),
+  address VARCHAR(200),
+  PRIMARY KEY (customer_id)
+);
+
+CREATE TABLE Orders (
+  OrderID INT AUTO_INCREMENT,
+  CustomerID INT,
+  OrderDate DATE,
+  Total DECIMAL(10, 2),
+  PRIMARY KEY (OrderID)
+);
+
+CREATE TABLE OrderDetails (
+  OrderDetailID INT AUTO_INCREMENT,
+  OrderID INT,
+  ProductID INT,
+  Quantity INT,
+  UnitPrice DECIMAL(10, 2),
+  PRIMARY KEY (OrderDetailID),
+  FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+
+CREATE TABLE menu (
+  menu_id INT AUTO_INCREMENT,
+  item_name VARCHAR(100),
+  description VARCHAR(200),
+  price DECIMAL(10, 2),
+  category VARCHAR(50),
+  PRIMARY KEY (menu_id)
+);
+
+CREATE TABLE Payments (
+  payment_id INT AUTO_INCREMENT,
+  OrderID INT,
+  customer_id INT,
+  payment_method VARCHAR(50),
+  payment_date DATE,
+  amount DECIMAL(10, 2),
+  transaction_status VARCHAR(50),
+  PRIMARY KEY (payment_id),
+  FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+  FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+2. INSERT SAMPLE DATA
+
+INSERT INTO customer (name, email, phone, address)
+VALUES
+  ('Harry Styles', 'styles@example.com', '123-456-7890', '123 london St'),
+  ('Deena Joyce', 'joyce@example.com', '987-654-3210', '456 london St'),
+  ('Mullai Nathi', 'nathi@example.com', '555-123-4567', '789 seol St'),
+  ('Raja Varthini', 'pulu@example.com', '445-176-4837', '853 russian St');
+  
+INSERT INTO menu (item_name, description, price, category)
+VALUES
+  ('Burger', 'Juicy beef burger', 10.99, 'Main Course'),
+  ('Fries', 'Crispy french fries', 4.99, 'Side Dish'),
+  ('Salad', 'Fresh mixed greens', 7.99, 'Salad');
+
+INSERT INTO Orders (CustomerID, OrderDate, Total)
+VALUES
+  (1, '2022-01-01', 100.00),
+  (1, '2022-01-15', 200.00),
+  (2, '2022-02-01', 50.00),
+  (3, '2022-03-01', 150.00);
+
+INSERT INTO OrderDetails (OrderID, ProductID, Quantity, UnitPrice)
+VALUES
+  (1, 1, 2, 50.00),
+  (1, 2, 1, 20.00),
+  (2, 3, 3, 60.00),
+  (3, 1, 1, 50.00),
+  (4, 4, 2, 75.00);
+
+INSERT INTO Payments (OrderID, customer_id, payment_method, payment_date, amount, transaction_status)
+VALUES
+  (1, 1, 'Credit Card', '2022-01-01', 100.00, 'Success'),
+  (2, 1, 'PayPal', '2022-01-15', 200.00, 'Success'),
+  (3, 2, 'Cash', '2022-02-01', 50.00, 'Success'),
+  (4, 3, 'Credit Card', '2022-03-01', 150.00, 'Success');
+
+UPDATE Orders
+SET status = 'completed'
+WHERE order_id = 1;
+
+UPDATE Orders
+SET status = 'completed'
+WHERE order_id = 2;
+
+UPDATE Orders
+SET status = 'pending'
+WHERE order_id = 3;
+
+UPDATE Orders
+SET status = 'pending'
+WHERE order_id = 4;
+
+3. RETRIEVAL QUERIE:
+
+Quire to fetch pending orders:
+
+SELECT o.OrderID, c.name, o.OrderDate, o.Total
+FROM Orders o
+JOIN customer c ON o.CustomerID = c.customer_id
+WHERE o.status = 'Pending';
