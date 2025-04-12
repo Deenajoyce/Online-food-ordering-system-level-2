@@ -1,0 +1,58 @@
+ONLINE FOOD ORDERING SYSTEM level-2 DOCUMENTATION
+
+INTRODUTION:
+The Online Food Ordering System is a web-based application designed to allow 
+customers to order food online from a restaurant or food establishment.
+The system provides a user-friendly interface for customers to browse menus, place orders, and make payments.
+
+SYSTEM OVERVIEW:
+The Online Food Ordering System consists of the following components:
+
+1. Customer: The customer is the end-user who places orders through the system.
+2. Menu: The menu is a list of food items available for order.
+3. Order: An order is a collection of food items selected by the customer.
+4. Payment: Payment is the process of paying for the order.
+
+DATA BASE DESIGN:
+The database design for the Online Food Ordering System includes the following tables:
+
+1. Customer Table: Stores customer information.
+2. Menu Table: Stores menu items.
+3. Order Table: Stores order information.
+4. Order Details Table: Stores details of each order.
+5. Payment Table: Stores payment information.
+
+FEATURES:
+The Online Food Ordering System provides the following features:
+
+1. User Registration: Customers can register for an account.
+2. Menu Browsing: Customers can browse the menu and select items to order.
+3. Order Placement: Customers can place orders and specify delivery or pickup options.
+4. Payment Processing: Customers can make payments online.
+5. Order Tracking: Customers can track the status of their orders.
+
+INSTALLATION AND SETUP:
+To install and set up the Online Food Ordering System:
+
+1. Install the MySQL worbench.
+2. Create the database tables and populate them with initial data.
+3. Configure the system settings and security measures.
+
+USAGE:
+To use the Online Food Ordering System:
+
+1. Customers can register for an account and log in to the system.
+2. Customers can browse the menu, select items to order, and place orders.
+3. Customers can track the status of their orders and make payments online.
+
+
+FUTURE DEVELOPMENT:
+
+1. Mobile app development: Develop a mobile app for customers to order food on-the-go.
+2. Integration with third-party services: Integrate with third-party services such as delivery providers.
+3. Enhanced security measures: Implement enhanced security measures to protect customer data.
+
+CONCLUTION:
+
+The Online Food Ordering System provides a convenient and user-friendly way for customers to order food online. 
+The system is designed to be scalable and secure, with features such as user registration, menu browsing, order placement, and payment processing.
