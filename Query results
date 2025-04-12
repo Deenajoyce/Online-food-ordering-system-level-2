@@ -1,0 +1,4 @@
+OrderID |  name       | OrderDate  | Total  | status
+______________________________________________________
+3       | Deena Joyce | 2022-02-01 | 50.00  | pending
+4       | Mullai Nathi| 2022-03-01 | 150.00 | pending
